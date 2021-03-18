@@ -17,3 +17,8 @@
     width: 30vw;
     margin:10px;
 }
+
+.wrapper > form > section > * {
+    width: 50%;
+    height: 30px;
+}
