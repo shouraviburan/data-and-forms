@@ -10,27 +10,27 @@ function App() {
 
   let url = 'https://restcountries.eu/rest/v2/all';
   let options = {
-    method:"GET",
-    //timeDiff: '1d',
-    //component:item=><li>{item.name}</li>,
-    //log:true
+    /* timeDiff: '1',
+    component:item => <Card imgSrc = {item.flag} name = {item.name}/>,
+    log:true */
   };
 
   useEffect(()=>{
 
-    //axios({url, ...options}).then(res => console.log('axios', res.data)); 
+    /* axios({url, ...options}).then(res => console.log('axios', res)); 
 
-    /* fetch(url,options).then(result=>result.json().then(output=>{
-      console.log('fetch',output)
-    })); */
+    fetch(url,options).then(result=>result.json().then(output=>{
+      console.log('fetch',output, result)
+    }));
 
-    //kyc(url, options).then(res => console.log('kyc', res));
+    kyc(url, options).then(res => setCountryList(res)); */
 
     fetch(url, options).then(result => {
           console.log(result);
           result.json().then(output => {
-            console.log(output);
+            //console.log(output);
             //Code goes here...
+            //TO-DO: check map below
             setCountryList(output.map(item=><Card 
                                               imgSrc = {item.flag} 
                                               name = {item.name}
