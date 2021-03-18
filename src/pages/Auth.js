@@ -11,7 +11,8 @@ export default function() {
         data.email = e.target[0].value;
         data.pass = e.target[1].value;
 
-        let url = 'https://auth404.herokuapp.com/api/auth/register';
+        let urlRegister = 'https://auth404.herokuapp.com/api/auth/register';
+        let urlLogin = 'https://auth404.herokuapp.com/api/auth/login';
         let options = {
             method:'POST', 
             headers: {
@@ -24,10 +25,10 @@ export default function() {
         if (e.nativeEvent.submitter.id == "register"){
             //alert('register')
             //console.log(data)
-            fetch(url, options).then(result=>result.json().then(output=>console.log(output)));
-        } else {
-            alert('else')
-            //fetch('https://auth404.herokuapp.com/api/auth/login');
+            fetch(urlRegister, options).then(result=>result.json().then(output=>console.log(output)));
+        } else if (e.nativeEvent.submitter.id == "login") {
+            //alert('else')
+            fetch(urlLogin, options).then(result=>result.json().then(output=>console.log(output)));;
         }
     }
 
