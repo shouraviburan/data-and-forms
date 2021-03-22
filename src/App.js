@@ -17,13 +17,13 @@ function App() {
 
   useEffect(()=>{
 
-    /* axios({url, ...options}).then(res => console.log('axios', res)); 
+    axios({url, ...options}).then(res => console.log('axios', res)); 
 
     fetch(url,options).then(result=>result.json().then(output=>{
       console.log('fetch',output, result)
     }));
 
-    kyc(url, options).then(res => setCountryList(res)); */
+    kyc(url, options).then(res => setCountryList(res));
 
     fetch(url, options).then(result => {
           console.log(result);
