@@ -33,7 +33,7 @@ export default function(props) {
                 .then(output=>{
                     if (output.status == 'success') {
                         localStorage.setItem('token', output.token);
-                        console.log(props.setIsLoggedIn);
+                        //console.log(props.setIsLoggedIn);
                         props.setIsLoggedIn(true);
                     } else {
                         localStorage.removeItem('token');
