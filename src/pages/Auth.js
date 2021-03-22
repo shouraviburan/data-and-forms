@@ -1,6 +1,6 @@
 import './Auth.css';
 
-export default function() {
+export default function(props) {
 
     let submitHandler = (e) => {
         e.preventDefault();
@@ -28,7 +28,17 @@ export default function() {
             fetch(urlRegister, options).then(result=>result.json().then(output=>console.log(output)));
         } else if (e.nativeEvent.submitter.id == "login") {
             //alert('else')
-            fetch(urlLogin, options).then(result=>result.json().then(output=>console.log(output)));;
+            fetch(urlLogin, options)
+            .then(result=>result.json()
+                .then(output=>{
+                    if (output.status == 'success') {
+                        localStorage.setItem('token', output.token);
+                        console.log(props.setIsLoggedIn);
+                        props.setIsLoggedIn(true);
+                    } else {
+                        localStorage.removeItem('token');
+                    }
+                }));
         }
     }
 
