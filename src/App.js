@@ -36,9 +36,9 @@ function App() {
   return (
     <Switch>
       <Route exact path = "/">
-        <div className="App">
-          <h1>Welcome on Countries & Auth App!</h1>
-        </div>
+        <AuthCheck isLoggedIn = {isLoggedIn} setIsLoggedIn = {setIsLoggedIn}>
+          <Countries/>
+        </AuthCheck>
       </Route>
 
       <Route path = "/auth">

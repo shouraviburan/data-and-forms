@@ -23,11 +23,16 @@ export default function(props) {
         }
 
         if (e.nativeEvent.submitter.id == "register"){
-            //alert('register')
-            //console.log(data)
-            fetch(urlRegister, options).then(result=>result.json().then(output=>console.log(output)));
+            fetch(urlRegister, options).then(result=>result.json().then(output=>
+                {
+                    if (output.status == 'success') {
+                        alert('Congrats, you registered as well! Please login.')
+                    } else {
+                        alert(output.message)
+                    }
+                    console.log(output);
+                }));
         } else if (e.nativeEvent.submitter.id == "login") {
-            //alert('else')
             fetch(urlLogin, options)
             .then(result=>result.json()
                 .then(output=>{
